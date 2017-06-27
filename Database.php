@@ -12,7 +12,7 @@
     protected $avatar;
     protected $age;
  */
-include_once './Utilisateurs.php';
+include_once 'Utilisateur.php';
 
 class Database {
     function saveUser($user) {
@@ -26,9 +26,15 @@ class Database {
     
     function login($username, $mdp){
         if(is_file('user/'.$username)){
-            $user = unserialize(file_get_contents('user/'.$user->pseudo));
-            if ($user->getMdp() == $mdp);
-            $_SESSION['utilisateur'] = $user;
+            $user = unserialize(file_get_contents('user/'.$username));
+            echo $user->getMdp();
+            echo $mdp;
+            if ($user->getMdp() == $mdp){
+                if (session_status() != 2) {
+                    session_start();
+                }
+                $_SESSION['utilisateur'] = $user;
+            }
         }
     }
 

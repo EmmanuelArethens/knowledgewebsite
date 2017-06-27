@@ -12,6 +12,12 @@ and open the template in the editor.
     <body>
         <?php
         include_once 'header.php';
+        
+        
+        if (session_status() != 2) {
+            session_start();
+        }
+        var_dump($_SESSION);
         ?>
     </body>
 </html>

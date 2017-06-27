@@ -12,7 +12,7 @@
  * @author arethens
  */
 class Utilisateur {
-    protected $pseudo;
+    public $pseudo;
     protected $mdp;
     protected $bio;
     

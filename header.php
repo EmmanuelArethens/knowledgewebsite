@@ -7,6 +7,11 @@ if(isset($post["pseudo"]) && isset($post["mdp"]) && isset($post["bio"])){
      $data = new Database();
      $data->saveUser($user);
 }
+
+if(isset($post["pseudolog"]) && isset($post["mdplog"])) {
+    $data = new Database();
+    $data->login($post["pseudolog"], $post["mdplog"]);
+}
 ?>
 <form action ="" method="POST">
             <input type="text" placeholder="Nom d'utilisateur" name="pseudo">
@@ -16,7 +21,7 @@ if(isset($post["pseudo"]) && isset($post["mdp"]) && isset($post["bio"])){
 </form>
 
 <form action ="" method="POST">
-            <input type="text" placeholder="Nom d'utilisateur" name="pseudo">
-            <input type="password" placeholder="Mot de passe" name="mdp">
+            <input type="text" placeholder="Nom d'utilisateur" name="pseudolog">
+            <input type="password" placeholder="Mot de passe" name="mdplog">
             <input type="submit" value="login">
 </form>
