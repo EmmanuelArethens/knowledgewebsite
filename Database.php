@@ -13,6 +13,8 @@
     protected $age;
  */
 include_once 'Utilisateur.php';
+include_once 'Post.php';
+include_once 'Comment.php';
 
 class Database {
     function saveUser($user) {
@@ -37,5 +39,15 @@ class Database {
             }
         }
     }
-
+   
+    
+     function saveComment($com) {
+     if(!is_dir('comment')){
+         mkdir('comment');
+     }
+         $fd = fopen('comment/'.$com->getDate()->format('Y-m-d').'.txt', "w+");
+         fwrite($fd, serialize($com));
+         fclose($fd);
+       
+}
 }

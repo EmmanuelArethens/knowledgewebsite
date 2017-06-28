@@ -19,13 +19,53 @@ class Comment {
     protected $upvote;
     protected $downvote;
     
-    function __construct($contenu, $date, $auteur, $upvote, $downvote) {
+    function __construct($contenu, DateTime $date, $auteur) {
         $this->contenu = $contenu;
         $this->date = $date;
         $this->auteur = $auteur;
+    }
+    
+    function getContenu() {
+        return $this->contenu;
+    }
+
+    function getDate() {
+        return $this->date;
+    }
+
+    function getAuteur() {
+        return $this->auteur;
+    }
+
+    function getUpvote() {
+        return $this->upvote;
+    }
+
+    function getDownvote() {
+        return $this->downvote;
+    }
+
+    function setContenu($contenu) {
+        $this->contenu = $contenu;
+    }
+
+    function setDate($date) {
+        $this->date = $date;
+    }
+
+    function setAuteur($auteur) {
+        $this->auteur = $auteur;
+    }
+
+    function setUpvote($upvote) {
         $this->upvote = $upvote;
+    }
+
+    function setDownvote($downvote) {
         $this->downvote = $downvote;
     }
+
+
 
 
     
