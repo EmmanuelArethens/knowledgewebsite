@@ -18,7 +18,7 @@ and open the template in the editor.
 
         <?php
         include_once 'header.php';
-
+        include_once 'Comment.php';
         var_dump($_SESSION);
         ?>
 
@@ -33,6 +33,16 @@ and open the template in the editor.
         $data = new Database();
         $com = new Comment($_POST['comment'], new DateTime, 'Manu');
         $data->saveComment($com);
+        
+        $files = scandir("comment");
+        foreach($files as $file) {
+        if (is_dir($file)) {
+            continue;
+        }
+        echo '<h2>'.basename($file, ".txt").'</h2>';
+        $content = file_get_contents('comment/'.$file);
+        echo '<p>'.$content.'</p>';
+        }
         ?>
     </body>
 </html>
