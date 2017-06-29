@@ -12,23 +12,28 @@ if(isset($post["pseudo"]) && isset($post["mdp"]) && isset($post["bio"])){
 
 if(isset($post["pseudolog"]) && isset($post["mdplog"])) {
     $data = new Database();
-    $data->login($post["pseudolog"], $post["mdplog"]);
-}
+    $user = $data->loaduser($post["pseudolog"], $post["mdplog"]);
+    if ($user != false){
+        $_SESSION["user"] = $user;
+    }
+    }
+    
 ?>
 
 <h1>REGISTER</h1>
 
-<form action ="" method="POST">
-            <input type="text" placeholder="Nom d'utilisateur" name="pseudo">
-            <input type="password" placeholder="Mot de passe" name="mdp">
-            <input type="textarea" placeholder="racontes ta vie" name="bio">
+<form action ="" method="POST" autocomplete="off"   >
+            <input type="text" placeholder="Nom d'utilisateur" autocomplete="off" name="pseudo">
+            <input type="password" placeholder="Mot de passe" autocomplete="off" name="mdp">
+            <input type="textarea" placeholder="racontes ta vie" autocomplete="off" name="bio">
             <input type="submit" value="register">
 </form>
 
 <h1> LOGIN </h1>
 
-<form action ="" method="POST">
-            <input type="text" placeholder="Nom d'utilisateur" name="pseudolog">
-            <input type="password" placeholder="Mot de passe" name="mdplog">
+<form action ="" method="POST" autocomplete="off">
+            <input type="text" placeholder="Nom d'utilisateur" autocomplete="off" name="pseudolog">
+            <input type="password" placeholder="Mot de passe" autocomplete="off" name="mdplog">
             <input type="submit" value="login">
 </form>
+<form action="logout.php" method="POST"> <input type="submit" value="logout"></form>

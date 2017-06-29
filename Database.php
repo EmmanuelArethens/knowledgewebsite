@@ -26,18 +26,16 @@ class Database {
         fclose($fd);
     }
     
-    function login($username, $mdp){
+    function loaduser($username, $mdp){
         if(is_file('user/'.$username)){
             $user = unserialize(file_get_contents('user/'.$username));
             echo $user->getMdp();
             echo $mdp;
             if ($user->getMdp() == $mdp){
-                if (session_status() != 2) {
-                    session_start();
-                }
-                $_SESSION['utilisateur'] = $user;
+                return $user;
             }
         }
+        return false;
     }
    
     
