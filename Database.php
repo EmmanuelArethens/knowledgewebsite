@@ -43,7 +43,7 @@ class Database {
      if(!is_dir('comment')){
          mkdir('comment');
      }
-         $fd = fopen('comment/'.$com->getDate()->format('Y-m-d').'.txt', "w+");
+         $fd = fopen('comment/'.$com->getDate()->format('Y-m-d H:i:s').'.txt', "w+");
          fwrite($fd, serialize($com));
          fclose($fd);
        

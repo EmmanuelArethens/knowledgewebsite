@@ -22,11 +22,18 @@ and open the template in the editor.
         var_dump($_SESSION);
         ?>
 
+        <h1>CREATE A POST</h1>
+        <form method="POST"></form>
+        <input type="text" name ="categorie" placeholder="catégorie">
+        <input type="text" name ="comment" placeholder="Titre">
+        <input type="textarea" name ="comment" placeholder="Contenu du Post">
+        
+        
         <h1> CREATE A COMMENT </h1>
 
         <form method="POST">
             <h3> Post comment </h3>
-            <input type="textarea" name ="comment" placeholder="Contenu du post">
+            <input type="textarea" name ="comment" placeholder="Contenu du commentaire">
             <input type="submit">
         </form>
         <?php
