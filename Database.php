@@ -48,4 +48,14 @@ class Database {
          fclose($fd);
        
 }
+
+      function savePost($pos) {
+     if(!is_dir('post')){
+         mkdir('post');
+     }
+         $fd = fopen('post/'.$pos->getTitre(), "w+");
+         fwrite($fd, serialize($com));
+         fclose($fd);
+       
+}
 }
