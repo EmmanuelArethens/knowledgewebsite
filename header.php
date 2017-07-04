@@ -28,5 +28,3 @@ if(isset($post["pseudolog"]) && isset($post["mdplog"])) {
 
 <a href="register.php"> New User </a>
 <a href="index.php"> Accueil </a>
-
-

@@ -11,9 +11,6 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-
-
-
         <?php
         include_once 'header.php';
         include_once 'Utilisateur.php';
@@ -47,9 +44,8 @@ and open the template in the editor.
             continue;
         }
         var_dump($file);
-        $file = array_diff($file, ['.', '..']);
         echo '<h2>'.basename($file, ".txt").'</h2>';
-        $content = file_get_contents('comment/'.$file);
+        $content = unserialize(file_get_contents('comment/'.$file));
         echo '<p>'.$content->getContenu().'</p>';
         }
         ?>

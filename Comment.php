@@ -66,7 +66,9 @@ class Comment {
     }
 
 
-
+    function affichagecomment() {
+        echo '<p>'.$this->contenu.'</p>';
+    }
 
     
 }
