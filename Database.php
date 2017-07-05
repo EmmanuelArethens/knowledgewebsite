@@ -58,4 +58,20 @@ class Database {
          fclose($fd);
        
 }
+      function loadComment() {
+        $files = scandir("comment");
+        var_dump($files);
+        $files = array_diff($files, ['.', '..']);
+        foreach($files as $file) {
+        if (is_file($file)) {
+            continue;
+        }
+        echo '<h2>'.basename($file, ".txt").'</h2>';
+        $content = unserialize(file_get_contents('comment/'.$file));
+        echo '<p>'.$content->getContenu().'</p>';
+        }  
+          
+      }
+    
 }
+

@@ -15,6 +15,7 @@ class Utilisateur {
     public $pseudo;
     protected $mdp;
     protected $bio;
+    protected $pp;
     
     function __construct($pseudo, $mdp, $bio) {
         $this->pseudo = $pseudo;

@@ -33,21 +33,8 @@ and open the template in the editor.
             <input type="textarea" name ="comment" placeholder="Contenu du commentaire">
             <input type="submit">
         </form>
-        <?php
-        
-        
-        $files = scandir("comment");
-        var_dump($files);
-        $files = array_diff($files, ['.', '..']);
-        foreach($files as $file) {
-        if (is_file($file)) {
-            continue;
-        }
-        var_dump($file);
-        echo '<h2>'.basename($file, ".txt").'</h2>';
-        $content = unserialize(file_get_contents('comment/'.$file));
-        echo '<p>'.$content->getContenu().'</p>';
-        }
-        ?>
+  <?php
+        Database::loadComment();
+  ?>
     </body>
 </html>
