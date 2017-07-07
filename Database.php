@@ -53,8 +53,8 @@ class Database {
      if(!is_dir('post')){
          mkdir('post');
      }
-         $fd = fopen('post/'.$pos->getTitre(), "w+");
-         fwrite($fd, serialize($com));
+         $fd = fopen('post/'.$pos->getTitre().'.txt', "w+");
+         fwrite($fd, serialize($pos));
          fclose($fd);
        
 }
@@ -73,5 +73,32 @@ class Database {
           
       }
     
+            function loadPost() {
+        $files = scandir("post");
+        var_dump($files);
+        $files = array_diff($files, ['.', '..']);
+        foreach($files as $file) {
+        if (is_file($file)) {
+            continue;
+        }
+        echo '<h2>'.basename($file, ".txt").'</h2>';
+        $content = unserialize(file_get_contents('post/'.$file));
+        echo '<p>'.$content->getContenu().'</p>';
+        }  
+          
+      }
+      
+      function lienpost() {
+           $files = scandir("post");
+        $files = array_diff($files, ['.', '..']);
+        foreach($files as $file) {
+        if (is_file($file)) {
+            continue;
+        }
+        $content = unserialize(file_get_contents('post/'.$file));
+        
+        }  
+          
+      }
 }
 

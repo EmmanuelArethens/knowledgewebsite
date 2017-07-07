@@ -33,8 +33,11 @@ and open the template in the editor.
             <input type="textarea" name ="comment" placeholder="Contenu du commentaire">
             <input type="submit">
         </form>
+        <?php Database::loadPost();       
+        Database::lienpost(); ?>
+        <a href="pagepost.php?manu=<?php echo$content ?>"></a>
   <?php
-        Database::loadComment();
+     
   ?>
     </body>
 </html>
