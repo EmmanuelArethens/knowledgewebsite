@@ -5,11 +5,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
+
     <body>
         <?php
         include_once 'header.php';
@@ -33,11 +29,8 @@ and open the template in the editor.
             <input type="textarea" name ="comment" placeholder="Contenu du commentaire">
             <input type="submit">
         </form>
-        <?php Database::loadPost();       
-        Database::lienpost(); ?>
-        <a href="pagepost.php?manu=<?php echo$content ?>"></a>
-  <?php
-     
-  ?>
+        <?php Database::Lienposts();       
+         ?>
+
     </body>
 </html>

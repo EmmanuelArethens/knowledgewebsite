@@ -16,16 +16,27 @@ if(isset($post["pseudolog"]) && isset($post["mdplog"])) {
     }
       }   
 ?>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>knOWledge</title>
+        <link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
 
-<h1> KNOWLEDGE WEBSITE </h1>
+    <div class="row">
+        <h1 > KN<img src="images/ow.png" id="owlogo">WLEDGE WEBSITE </h1>
 
 <h3> Login </h3>
+<div class="col-xs-2">
 <form action ="" method="POST" autocomplete="off">
             <input type="text" placeholder="Nom d'utilisateur" autocomplete="off" name="pseudolog">
             <input type="password" placeholder="Mot de passe" autocomplete="off" name="mdplog">
             <input type="submit" value="login">
+            </div>
 </form>
 <form action="logout.php" method="POST"> <input type="submit" value="logout"></form>
 
 <a href="register.php"> New User </a>
 <a href="index.php"> Accueil </a>
+    </div>

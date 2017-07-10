@@ -84,6 +84,7 @@ class Database {
         echo '<h2>'.basename($file, ".txt").'</h2>';
         $content = unserialize(file_get_contents('post/'.$file));
         echo '<p>'.$content->getContenu().'</p>';
+        echo  '<a href="pagepost.php?manu='. base64_encode(serialize($content)).'">'.$content->getTitre().'</a>';
         }  
           
       }
@@ -100,5 +101,19 @@ class Database {
         }  
           
       }
+      
+      function Lienposts() {
+        $files = scandir("post");
+        $files = array_diff($files, ['.', '..']);
+        foreach($files as $file) {
+        if (is_file($file)) {
+            continue;
+        }
+        $content = unserialize(file_get_contents('post/'.$file));
+        echo  '<a href="pagepost.php?manu='. base64_encode(serialize($content)).'">'.$content->getTitre().'</a>'.'</br>';
+        } 
+      }
+          
+     
 }
 
