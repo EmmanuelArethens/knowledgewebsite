@@ -29,8 +29,6 @@ class Database {
     function loaduser($username, $mdp){
         if(is_file('user/'.$username)){
             $user = unserialize(file_get_contents('user/'.$username));
-            echo $user->getMdp();
-            echo $mdp;
             if ($user->getMdp() == $mdp){
                 return $user;
             }
