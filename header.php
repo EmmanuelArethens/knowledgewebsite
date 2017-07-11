@@ -1,11 +1,13 @@
 <?php
-session_start();
+
 
 include_once 'Utilisateur.php';
 include_once 'Database.php';
 include_once 'Post.php';
 include_once 'Comment.php';
+session_start();
 
+var_dump($_SESSION['user']);
 $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 if (isset($post["pseudolog"]) && isset($post["mdplog"])) {
