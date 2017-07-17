@@ -41,7 +41,7 @@ class Database {
         if (!is_dir('comment')) {
             mkdir('comment');
         }
-        $fd = fopen('comment/' . $com->getDate()->format('Y-m-d H:i:s') . '.txt', "w+");
+        $fd = fopen('comment/' . $_SESSION["user"]->getPseudo().' '. $com->getDate()->format('Y-m-d H:i:s') . '.txt', "w+");
         fwrite($fd, serialize($com));
         fclose($fd);
     }
@@ -57,7 +57,6 @@ class Database {
 
     function loadComment() {
         $files = scandir("comment");
-        var_dump($files);
         $files = array_diff($files, ['.', '..']);
         foreach ($files as $file) {
             if (is_file($file)) {
@@ -103,7 +102,7 @@ class Database {
                 continue;
             }
             $content = unserialize(file_get_contents('post/' . $file));
-            echo '<a href="pagepost.php?manu=' . base64_encode(serialize($content)) . '">' . $content->getTitre() . '</a>' . '</br>';
+            echo '<a href="pagepost.php?manu=' . base64_encode(serialize($content)) . '">' .'<h4>'. $content->getTitre() .'</h4>'. '</a>' . '</br>';
         }
     }
 

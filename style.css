@@ -11,3 +11,15 @@
         padding-top: 30px;
 }
 
+p {
+    height: 22px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:focus {
+    outline: 0;
+}
+
