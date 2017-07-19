@@ -62,7 +62,7 @@ class Database {
             if (is_file($file)) {
                 continue;
             }
-            echo '<h2>' . basename($file, ".txt") . '</h2>';
+            echo '<h4>' . basename($file, ".txt") . '</h4>';
             $content = unserialize(file_get_contents('comment/' . $file));
             echo '<p>' . $content->getContenu() . '</p>';
         }
