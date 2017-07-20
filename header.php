@@ -15,23 +15,6 @@ if (isset($post["pseudolog"]) && isset($post["mdplog"])) {
     }
 }
 
-if (isset($_SESSION["user"])) {
-    echo "<style> #logform {display:none} </style>";
-}
-
-if (!isset($_SESSION["user"])) {
-    echo "<style> #logoutform {display:none} </style>";
-}
-
-if (!isset($_SESSION["user"])) {
-    echo "<style> #creapost {display:none} </style>";
-}
-
-if (!isset($_SESSION["user"])) {
-    echo "<style> #commentform {display:none} </style>";
-}
-
-
 ?>
 <html>
     <head>
@@ -46,11 +29,13 @@ if (!isset($_SESSION["user"])) {
             <div class="col-md-6">
 
                 <div class ='row' id="headform">
+                    <?php if (!isset($_SESSION["user"])) { ?>
                     <form id="logform" class="col-md-10" action ="" method="POST" autocomplete="off">
                         <input type="text" placeholder="Nom d'utilisateur" autocomplete="off" name="pseudolog">
                         <input type="password" placeholder="Mot de passe" autocomplete="off" name="mdplog">
                         <input type="submit" value="login">
-                    </form> 
+                        
+                    </form>  <?php } ?>
                     <form id="logoutform" action="logout.php" method="POST" class="col-md-2"><input type="submit" value="logout">          
                     </form>
                 </div>

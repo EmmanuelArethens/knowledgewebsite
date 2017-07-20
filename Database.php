@@ -41,7 +41,7 @@ class Database {
         if (!is_dir('comment')) {
             mkdir('comment');
         }
-        $fd = fopen('comment/' . $_SESSION["user"]->getPseudo().' '. $com->getDate()->format('Y-m-d H:i:s') . '.txt', "w+");
+        $fd = fopen('comment/' . $_SESSION["user"]->getPseudo().'_'. $com->getDate()->format('Y-m-d H:i:s') . '.txt', "w+");
         fwrite($fd, serialize($com));
         fclose($fd);
     }
@@ -83,16 +83,6 @@ class Database {
         }
     }
 
-    function lienpost() {
-        $files = scandir("post");
-        $files = array_diff($files, ['.', '..']);
-        foreach ($files as $file) {
-            if (is_file($file)) {
-                continue;
-            }
-            $content = unserialize(file_get_contents('post/' . $file));
-        }
-    }
 
     function Lienposts() {
         $files = scandir("post");
